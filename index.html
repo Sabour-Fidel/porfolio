@@ -417,7 +417,7 @@
                     <div class="row" id="project-list" style="gap: 24px 0;">
                         <!-- Projet 1 : Mémoire de Master -->
                         <div class="col-lg-6 col-md-6 mb-4">
-                            <div class="project-card" tabindex="0" style="border: 1.5px solid #3DBCA2; border-radius: 12px; padding: 20px; height:100%; background: #fff; transition: box-shadow 0.2s;">
+                            <div class="project-card" tabindex="0">
                                 <h5 style="margin-bottom: 4px;">Mémoire de cycle Master</h5>
                                 <small><strong>09/2019 – 09/2021</strong></small>
                                 <ul style="margin-left: -18px; margin-top: 10px;">
@@ -432,7 +432,7 @@
                         </div>
                         <!-- Projet 2 : Immobilier -->
                         <div class="col-lg-6 col-md-6 mb-4">
-                            <div class="project-card" tabindex="0" style="border: 1.5px solid #3DBCA2; border-radius: 12px; padding: 20px; height:100%; background: #fff; transition: box-shadow 0.2s;">
+                            <div class="project-card" tabindex="0">
                                 <h5 style="margin-bottom: 4px;">
                                     <a href="https://sabour-fidel.github.io/immobilier/" target="_blank" style="color: inherit; text-decoration: underline;">Gestion immobilière</a>
                                 </h5>
@@ -444,7 +444,7 @@
                         </div>
                         <!-- Projet 3 : Vente de voiture -->
                         <div class="col-lg-6 col-md-6 mb-4">
-                            <div class="project-card" tabindex="0" style="border: 1.5px solid #3DBCA2; border-radius: 12px; padding: 20px; height:100%; background: #fff; transition: box-shadow 0.2s;">
+                            <div class="project-card" tabindex="0">
                                 <h5 style="margin-bottom: 4px;">
                                     <a href="https://sabour-fidel.github.io/tumai-car/tumai-car-v0.0/" target="_blank" style="color: inherit; text-decoration: underline;">Vente de voiture</a>
                                 </h5>
@@ -460,16 +460,33 @@
         </div>
         <style>
             #project .project-card {
-                background: #fff;
-                box-shadow: 0 1px 8px rgba(61, 188, 162, 0.03);
-                transition: box-shadow 0.2s, border-color 0.2s;
+                background: #3DBCA2;
+                color: #fff;
+                border: 1.5px solid #3DBCA2;
+                border-radius: 12px;
+                padding: 20px;
+                height: 100%;
+                transition: 
+                    background 0.2s,
+                    color 0.2s,
+                    border-color 0.2s,
+                    box-shadow 0.2s;
                 outline: none;
+                box-shadow: 0 1px 8px rgba(61, 188, 162, 0.03);
             }
+            #project .project-card a { color: #fff; }
             #project .project-card:focus, 
             #project .project-card:hover, 
             #project .project-card:active {
+                background: #fff;
+                color: #3DBCA2;
+                border-color: #3DBCA2;
                 box-shadow: 0 4px 24px rgba(61, 188, 162, 0.17);
-                border-color: #16885f;
+            }
+            #project .project-card:focus a,
+            #project .project-card:hover a,
+            #project .project-card:active a {
+                color: #3DBCA2;
             }
             @media (max-width: 991.98px) {
                 #project-list > .col-lg-6 {

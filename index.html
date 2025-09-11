@@ -290,7 +290,7 @@
                     <div class="row" style="gap: 24px 0;">
                         <!-- Certificat 1 -->
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="certificate-card" style="border: 1.5px solid #3DBCA2; border-radius: 12px; padding: 20px; height:100%;">
+                            <div class="certificate-card">
                                 <h5 style="margin-bottom: 4px;">Sécurité et bonne pratique IT (OCB)</h5>
                                 <small><strong>Médecins Sans Frontières Belgique</strong></small><br>
                                 <small>07/2025 | Adré, Tchad</small>
@@ -301,7 +301,7 @@
                         </div>
                         <!-- Certificat 2 -->
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="certificate-card" style="border: 1.5px solid #3DBCA2; border-radius: 12px; padding: 20px; height:100%;">
+                            <div class="certificate-card">
                                 <h5 style="margin-bottom: 4px;">Welcome to MSF</h5>
                                 <small><strong>Médecins Sans Frontières Suisse / Ärzte ohne Grenzen Schweiz</strong></small><br>
                                 <small>05/2025 | Adré, Tchad</small>
@@ -312,7 +312,7 @@
                         </div>
                         <!-- Certificat 3 -->
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="certificate-card" style="border: 1.5px solid #3DBCA2; border-radius: 12px; padding: 20px; height:100%;">
+                            <div class="certificate-card">
                                 <h5 style="margin-bottom: 4px;">Data Protection Course (MSF)</h5>
                                 <small><strong>Médecins Sans Frontières Suisse / Ärzte ohne Grenzen Schweiz</strong></small><br>
                                 <small>02/2025 | Adré, Tchad</small>
@@ -323,7 +323,7 @@
                         </div>
                         <!-- Certificat 4 -->
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="certificate-card" style="border: 1.5px solid #3DBCA2; border-radius: 12px; padding: 20px; height:100%;">
+                            <div class="certificate-card">
                                 <h5 style="margin-bottom: 4px;">Introductory Course to DHIS2 (OCG)</h5>
                                 <small><strong>Médecins Sans Frontières Suisse / Ärzte ohne Grenzen Schweiz</strong></small><br>
                                 <small>01/2025 | Adré, Tchad</small>
@@ -334,7 +334,7 @@
                         </div>
                         <!-- Certificat 5 -->
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="certificate-card" style="border: 1.5px solid #3DBCA2; border-radius: 12px; padding: 20px; height:100%;">
+                            <div class="certificate-card">
                                 <h5 style="margin-bottom: 4px;">Data Analysis with Python</h5>
                                 <small><strong>freeCodeCamp</strong></small><br>
                                 <small>07/2024 | En ligne</small>
@@ -345,7 +345,7 @@
                         </div>
                         <!-- Certificat 6 -->
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="certificate-card" style="border: 1.5px solid #3DBCA2; border-radius: 12px; padding: 20px; height:100%;">
+                            <div class="certificate-card">
                                 <h5 style="margin-bottom: 4px;">JavaScript Algorithms and Data Structure</h5>
                                 <small><strong>freeCodeCamp</strong></small><br>
                                 <small>02/2024 | En ligne</small>
@@ -358,15 +358,35 @@
                 </div>
             </div>
         </div>
-      <!-- Optionally add a style block for better responsiveness and appearance -->
+        <!-- Effet de survol et apparence modernisée -->
         <style>
             #certification .certificate-card {
                 background: #fff;
+                border: 1.5px solid #3DBCA2;
+                border-radius: 12px;
+                padding: 20px;
+                height: 100%;
+                color: #252525;
                 box-shadow: 0 1px 8px rgba(61, 188, 162, 0.03);
-                transition: box-shadow 0.2s;
+                transition: background 0.25s, color 0.25s, box-shadow 0.2s, border 0.25s;
             }
             #certification .certificate-card:hover {
+                background: #3DBCA2;
+                color: #fff;
+                border: none;
                 box-shadow: 0 2px 16px rgba(61, 188, 162, 0.13);
+            }
+            #certification .certificate-card:hover h5,
+            #certification .certificate-card:hover strong,
+            #certification .certificate-card:hover small,
+            #certification .certificate-card:hover li {
+                color: #fff !important;
+            }
+            #certification .certificate-card h5,
+            #certification .certificate-card strong,
+            #certification .certificate-card small,
+            #certification .certificate-card li {
+                transition: color 0.25s;
             }
             @media (max-width: 991.98px) {
                 #certification .row > .col-lg-4 {

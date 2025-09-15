@@ -1,3 +1,73 @@
+
+// Fonction pour ré-initialiser les effets JS après l'inclusion dynamique
+window.reInitEffects = function() {
+    // Smooth scroll sur les liens du menu
+    $('.page-scroll').off('click.smooth').on('click.smooth', function (event) {
+        var target = this.hash;
+        if (target && $(target).length) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: $(target).offset().top - 70
+            }, 1200);
+        }
+    });
+    // Sticky
+    $(window).off('scroll.sticky').on('scroll.sticky', function () {
+        var scroll = $(window).scrollTop();
+        if (scroll < 20) {
+            $(".header_navbar").removeClass("sticky");
+        } else {
+            $(".header_navbar").addClass("sticky");
+        }
+    });
+
+    // Section Menu Active
+    var scrollLink = $('.page-scroll');
+    $(window).off('scroll.menuactive').on('scroll.menuactive', function () {
+        var scrollbarLocation = $(this).scrollTop();
+        scrollLink.each(function () {
+            var sectionOffset = $(this.hash).offset().top - 73;
+            if (sectionOffset <= scrollbarLocation) {
+                $(this).parent().addClass('active');
+                $(this).parent().siblings().removeClass('active');
+            }
+        });
+    });
+
+    // Navbar collapse
+    $(".navbar-nav a").off('click.collapse').on('click.collapse', function () {
+        $(".navbar-collapse").removeClass("show");
+        $(".navbar-toggler").removeClass('active');
+    });
+    $(".navbar-toggler").off('click.toggler').on('click.toggler', function () {
+        $(this).toggleClass("active");
+    });
+
+    // Progress Bar
+    if ($('.progress_line').length) {
+        $('.progress_line').appear(function () {
+            var el = $(this);
+            var percent = el.data('width');
+            $(el).css('width', percent + '%');
+        }, {
+            accY: 0
+        });
+    }
+
+    // Back to top
+    $(window).off('scroll.backtotop').on('scroll.backtotop', function () {
+        if ($(this).scrollTop() > 600) {
+            $('.back-to-top').fadeIn(200)
+        } else {
+            $('.back-to-top').fadeOut(200)
+        }
+    });
+    $('.back-to-top').off('click.scrolltop').on('click.scrolltop', function (event) {
+        event.preventDefault();
+        $('html, body').animate({ scrollTop: 0 }, 1500);
+    });
+}
+
 $(function () {
 
     "use strict";

@@ -1,3 +1,9 @@
+/* === Fond intuitif pour sections skills, experience, certification, project === */
+#skill, #experience, #certification, #project {
+  position: relative;
+  background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('../images/bg-intuitif.jpg') center/cover no-repeat;
+  z-index: 1;
+}
 /*-----------------------------------------------------------------------------------
 
     Template Name: Freelancer - CV and Personal Portfolio Template

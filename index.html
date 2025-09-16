@@ -66,18 +66,18 @@
             if (file) {
                 console.log(`Tentative de chargement du fichier: ${file}`);
                 try {
-                    const response = await fetch(file);
-                    if (!response.ok) throw new Error(`Page not found: ${file}`);
-                    const content = await response.text();
-                    el.innerHTML = content;
-                    console.log(`Fichier chargé avec succès: ${file}`);
-                } catch (err) {
-                    el.innerHTML = err.message;
-                    console.error(`Erreur lors du chargement de ${file}:`, err);
+                        const response = await fetch(file);
+                        if (!response.ok) throw new Error(`Page not found: ${file}`);
+                        const content = await response.text();
+                        el.innerHTML = content;
+                        console.log(`Fichier chargé avec succès: ${file}`);
+                    } catch (err) {
+                        el.innerHTML = err.message;
+                        console.error(`Erreur lors du chargement de ${file}:`, err);
+                    }
+                    el.removeAttribute("include-html");
                 }
-                el.removeAttribute("include-html");
             }
-        }
         }
 
     // Charger automatiquement après le chargement du DOM

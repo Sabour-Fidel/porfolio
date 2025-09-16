@@ -1,7 +1,7 @@
 # Porfolio
 
 Bienvenue sur mon portfolio !  
-Ce projet présente mon parcours, mes compétences et mes réalisations dans le domaine du développement web.
+Ce projet présente mon parcours, mes compétences et mes réalisations dans le domaine de l'analyse de données et du développement web.
 
 ## À propos
 

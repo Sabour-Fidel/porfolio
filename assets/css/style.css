@@ -1,29 +1,30 @@
+/*-----------------------------------------------------------------------------------
+
+    CSS INDEX
+    ===================
+
+    01. Theme default CSS
+	  02. Header
+    03. Hero
+	  04. Footer
+
+-----------------------------------------------------------------------------------*/
+/* Ligne verticale verte pour séparer les sections skills et éducation */
+.vertical-green-line {
+  width: 4px;
+  height: 100%;
+  min-height: 350px;
+  background: #3DBCA2;
+  border-radius: 2px;
+  margin: 0 auto;
+}
 /* === Fond intuitif pour sections skills, experience, certification, project === */
 #skill, #experience, #certification, #project {
   position: relative;
   background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('../images/bg-intuitif.jpg') center/cover no-repeat;
   z-index: 1;
 }
-/*-----------------------------------------------------------------------------------
 
-    Template Name: Freelancer - CV and Personal Portfolio Template
-    Template URI: uideck.com
-    Description: Freelancer - CV and Personal Portfolio Template
-    Author: UIdeck
-    Author URI: uideck.com
-    Version: 1.0
-
------------------------------------------------------------------------------------
-
-    CSS INDEX
-    ===================
-
-    01. Theme default CSS
-	02. Header
-    03. Hero
-	04. Footer
-
------------------------------------------------------------------------------------*/
 /*===========================
       01.COMMON css 
 ===========================*/

@@ -1,3 +1,43 @@
+// === Compteurs dynamiques profil ===
+const API_URL = 'http://localhost:5000'; // à adapter si le backend est déployé
+
+function updateProfileStats() {
+    fetch(API_URL + '/stats')
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('profileViews').textContent = data.views;
+            document.getElementById('profileShares').textContent = data.shares;
+        });
+}
+
+function incrementProfileView() {
+    fetch(API_URL + '/view', { method: 'POST' })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('profileViews').textContent = data.views;
+        });
+}
+
+function incrementProfileShare() {
+    fetch(API_URL + '/share', { method: 'POST' })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('profileShares').textContent = data.shares;
+        });
+}
+
+// Appel au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+    incrementProfileView(); // incrémente à chaque visite
+    updateProfileStats();   // récupère les stats
+    // Ajoute l'événement sur le bouton de partage si besoin
+    var shareBtn = document.querySelector('.shares-counter');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', function() {
+            incrementProfileShare();
+        });
+    }
+});
 
 // Fonction pour ré-initialiser les effets JS après l'inclusion dynamique
 window.reInitEffects = function() {

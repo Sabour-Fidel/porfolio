@@ -1,5 +1,5 @@
 // === Compteurs dynamiques profil ===
-const API_URL = 'http://localhost:5000'; // à adapter si le backend est déployé
+const API_URL = 'https://portfolio-backend-itc9.onrender.com/'; // backend déployé sur Render.com 
 
 function updateProfileStats() {
     fetch(API_URL + '/stats')

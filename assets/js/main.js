@@ -1,42 +1,74 @@
 // === Compteurs dynamiques profil ===
-const API_URL = 'https://portfolio-backend-itc9.onrender.com/'; // backend déployé sur Render.com 
+const API_URL = 'https://portfolio-backend-itc9.onrender.com'; // Ton URL Render
 
+// Récupérer les stats
 function updateProfileStats() {
     fetch(API_URL + '/stats')
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) throw new Error('Erreur réseau : ' + res.status);
+            return res.json();
+        })
         .then(data => {
             document.getElementById('profileViews').textContent = data.views;
             document.getElementById('profileShares').textContent = data.shares;
-        });
+        })
+        .catch(err => console.error('Erreur lors de la récupération des stats:', err));
 }
 
+// Incrémenter les vues
 function incrementProfileView() {
     fetch(API_URL + '/view', { method: 'POST' })
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) throw new Error('Erreur réseau : ' + res.status);
+            return res.json();
+        })
         .then(data => {
             document.getElementById('profileViews').textContent = data.views;
-        });
+        })
+        .catch(err => console.error('Erreur lors de l\'incrémentation des vues:', err));
 }
 
+// Incrémenter les partages
 function incrementProfileShare() {
     fetch(API_URL + '/share', { method: 'POST' })
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) throw new Error('Erreur réseau : ' + res.status);
+            return res.json();
+        })
         .then(data => {
             document.getElementById('profileShares').textContent = data.shares;
-        });
+        })
+        .catch(err => console.error('Erreur lors de l\'incrémentation des partages:', err));
+}
+
+// Gérer le clic sur le bouton de partage
+function handleShare() {
+    if (navigator.share) {
+        // Utiliser l'API Web Share pour mobile
+        navigator.share({
+            title: 'Mon Portfolio',
+            text: 'Découvrez mon portfolio !',
+            url: window.location.href
+        })
+        .then(() => {
+            incrementProfileShare(); // Incrémente après un partage réussi
+        })
+        .catch(err => console.error('Erreur de partage:', err));
+    } else {
+        // Fallback pour desktop : copier l'URL dans le presse-papiers
+        navigator.clipboard.writeText(window.location.href)
+            .then(() => {
+                alert('Lien copié dans le presse-papiers !');
+                incrementProfileShare(); // Incrémente après copie
+            })
+            .catch(err => console.error('Erreur lors de la copie du lien:', err));
+    }
 }
 
 // Appel au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
-    incrementProfileView(); // incrémente à chaque visite
-    updateProfileStats();   // récupère les stats
-    // Ajoute l'événement sur le bouton de partage si besoin
-    var shareBtn = document.querySelector('.shares-counter');
-    if (shareBtn) {
-        shareBtn.addEventListener('click', function() {
-            incrementProfileShare();
-        });
-    }
+    incrementProfileView(); // Incrémente les vues à chaque visite
+    updateProfileStats();   // Récupère les stats
 });
 
 // Fonction pour ré-initialiser les effets JS après l'inclusion dynamique

@@ -1231,4 +1231,139 @@ p {
         .footer_content .footer_menu li a {
           font-size: 15px; } }
 
+/* ===== CERTIFICATE MODAL STYLES ===== */
+.btn-view-certificate {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background-color: #3DBCA2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-view-certificate:hover {
+    background-color: #2fa893;
+    box-shadow: 0 4px 12px rgba(61, 188, 162, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-view-certificate:active {
+    transform: translateY(0);
+}
+
+/* Modal Styles */
+.certificate-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease-in;
+}
+
+.certificate-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certificate-modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+}
+
+.certificate-modal-close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.certificate-modal-close:hover,
+.certificate-modal-close:focus {
+    color: #3DBCA2;
+}
+
+.certificate-viewer {
+    width: 100%;
+    text-align: center;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certificate-viewer iframe,
+.certificate-viewer img {
+    width: 100%;
+    height: 600px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.certificate-viewer img {
+    height: auto;
+    object-fit: contain;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .certificate-modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .certificate-modal-close {
+        font-size: 24px;
+        right: 10px;
+        top: 10px;
+    }
+    
+    .certificate-viewer iframe,
+    .certificate-viewer img {
+        height: 400px;
+    }
+}
+
 /*# sourceMappingURL=style.css.map */

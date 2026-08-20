@@ -209,8 +209,77 @@ $(function () {
         });
     }
 
+    // ===== Certificate Modal Functionality =====
+    const modal = document.getElementById('certificateModal');
+    const certificateFrame = document.getElementById('certificateFrame');
+    const certificateImage = document.getElementById('certificateImage');
+    const certificateNotFound = document.getElementById('certificateNotFound');
+    const modalClose = document.querySelector('.certificate-modal-close');
 
+    // Ouvrir le modal à la fois depuis les boutons
+    const viewCertificateButtons = document.querySelectorAll('.btn-view-certificate');
+    viewCertificateButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const certificateUrl = this.getAttribute('data-certificate-url');
+            openCertificateModal(certificateUrl);
+        });
+    });
 
+    // Fonction pour ouvrir le modal
+    function openCertificateModal(url) {
+        if (!url || url.trim() === '') {
+            // Afficher le message "non disponible"
+            certificateFrame.style.display = 'none';
+            certificateImage.style.display = 'none';
+            certificateNotFound.style.display = 'block';
+        } else {
+            // Déterminer le type de fichier
+            if (url.toLowerCase().endsWith('.pdf')) {
+                // Afficher le PDF dans un iframe
+                certificateFrame.src = url;
+                certificateFrame.style.display = 'block';
+                certificateImage.style.display = 'none';
+                certificateNotFound.style.display = 'none';
+            } else {
+                // Afficher l'image
+                certificateImage.src = url;
+                certificateImage.style.display = 'block';
+                certificateFrame.style.display = 'none';
+                certificateNotFound.style.display = 'none';
+            }
+        }
+        
+        // Afficher le modal
+        modal.classList.add('show');
+    }
+
+    // Fermer le modal au clic sur le X
+    if (modalClose) {
+        modalClose.addEventListener('click', function() {
+            closeModal();
+        });
+    }
+
+    // Fermer le modal au clic en dehors du contenu
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Fermer le modal avec la touche Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
+
+    function closeModal() {
+        modal.classList.remove('show');
+        certificateFrame.src = '';
+        certificateImage.src = '';
+    }
 
     //===== Back to top
 
